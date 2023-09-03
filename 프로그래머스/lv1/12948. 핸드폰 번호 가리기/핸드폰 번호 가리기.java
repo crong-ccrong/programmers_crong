@@ -7,8 +7,8 @@ class Solution {
             answer += "*";
         }
         
-        answer = answer+phone_number.charAt(phoneNumberLength - 4)+phone_number.charAt(phoneNumberLength - 3)+phone_number.charAt(phoneNumberLength - 2)+phone_number.charAt(phoneNumberLength - 1);
-        
+        answer += phone_number.substring(phone_number.length()-4);
+
         return answer;
     }
 }
