@@ -7,9 +7,11 @@ class Solution {
         
         while (true) {
             if (end==n) break;
-            if (sum<=n) {
-                if (sum==n) answer++;
+            if (sum<n) {
                 sum += ++end;
+            } else if (sum==n) {
+                sum += ++end;
+                answer++;
             } else {
                 sum -= start++;
             }
