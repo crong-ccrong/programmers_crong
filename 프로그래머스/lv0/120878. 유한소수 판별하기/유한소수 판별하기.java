@@ -11,11 +11,10 @@ class Solution {
     public int solution(int a, int b) {
         int answer = 2;
 
-        
-        // 분수를 기약분수로 만들기 > 분자와 분모의 최대공약수로 약분하기.
+        // 분수를 기약분수로 만들기 > 분자와 분모의 최대공약수로 약분하기
         int d= b/eucd(a, b);
 
-        // 기약분수의 분모의 소인수 구하여 return값 결정.
+        // 기약분수의 분모의 소인수 구하여 return값 결정
         while (d%2==0) {
             d /=2;
         }
