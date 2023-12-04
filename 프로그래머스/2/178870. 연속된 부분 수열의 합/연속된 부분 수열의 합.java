@@ -1,11 +1,10 @@
-import java.util.*;
-
 class Solution {
     public int[] solution(int[] sequence, int k) {
         int start = 0;
         int end = -1;
         int count = 0;
-        Map<Integer, int[]> answers = new HashMap<>();
+        int size = sequence.length+1;
+        int[] answer = new int[2];
         
         while (start < sequence.length && end < sequence.length) {
             if (count < k) {
@@ -17,8 +16,11 @@ class Solution {
             } else if (count > k) {
                 count -= sequence[start++];
             } else {
-                int[] answer = {start, end};
-                answers.put(end-start+1, answers.getOrDefault(end-start+1, answer));
+                if (size > end-start+1) {
+                    size = end-start+1;
+                    answer[0] = start;
+                    answer[1] = end;
+                }
                 ++end;
                 if (end == sequence.length) {
                     break;
@@ -27,6 +29,6 @@ class Solution {
                 continue;
             }
         }
-        return answers.get(Collections.min(answers.keySet()));
+        return answer;
     }
 }
