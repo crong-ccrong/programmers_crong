@@ -4,6 +4,6 @@ class Solution {
         for (int i=Math.min(a, b); i<=Math.max(a,b); i++) {
             answer += i;
         }
-        return (a==b) ? a : answer;
+        return answer;
     }
 }
