@@ -4,7 +4,7 @@ class Solution {
         int sum = 0;
         String str = x+"";
         for (char c : str.toCharArray()) {
-            sum += Integer.parseInt(c+"");
+            sum += c-'0';
         }
         answer = (x%sum==0) ? true : false;
         return answer;
