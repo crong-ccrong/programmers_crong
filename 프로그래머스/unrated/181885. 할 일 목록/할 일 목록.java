@@ -1,23 +1,11 @@
 class Solution {
     public String[] solution(String[] todo_list, boolean[] finished) {
-        int length = 0;
-        int index = 0;
-        
-        for (boolean b : finished) {
-            if (!b) {
-                length++;
-            }
-        }
-        
-        String[] answer = new String[length];
+        String answer = "";
         
         for (int i=0; i<finished.length; i++) {
-            if (!finished[i]) {
-                answer[index] = todo_list[i];
-                index++;
-            }
+            answer += (finished[i]) ? "" : todo_list[i]+" ";
         }
         
-        return answer;
+        return answer.split(" ");
     }
 }
