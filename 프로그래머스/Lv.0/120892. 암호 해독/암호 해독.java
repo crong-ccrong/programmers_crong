@@ -1,9 +1,8 @@
 class Solution {
     public String solution(String cipher, int code) {
         String answer = "";
-        char[] arr = cipher.toCharArray();
-        for (int i=0; i<arr.length/code; i++) {
-            answer += arr[(code-1)+code*i];
+        for(int i=code-1; i<cipher.length(); i+=code){
+            answer += cipher.substring(i, i+1);
         }
         return answer;
     }
