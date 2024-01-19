@@ -5,7 +5,7 @@ class Solution {
         List<Integer> list = new ArrayList<>();
         for (char c : my_string.toCharArray()) {
             if (c>='0' && c<='9') {
-                list.add(Integer.parseInt(c+""));
+                list.add(c-'0');
             }
         }
         
