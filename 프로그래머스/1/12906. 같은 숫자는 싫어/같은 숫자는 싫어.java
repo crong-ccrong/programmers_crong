@@ -2,21 +2,17 @@ import java.util.*;
 
 public class Solution {
     public int[] solution(int []arr) {
-
-        Deque<Integer> dq = new LinkedList<Integer>();
+        Stack<Integer> st = new Stack<Integer>();
         
-        for (int i=0; i<arr.length; i++) {
-        	if (!dq.isEmpty() && dq.getLast() == arr[i]) {
+        for(int i=0; i<arr.length; i++) {
+            if(!st.empty() && st.peek()==arr[i]) { 
                 continue;
-    	    }
-            dq.add(arr[i]);
+            } st.push(arr[i]);
         }
-        
-        int[] answer = new int[dq.size()];
-        for (int i=0; i<answer.length; i++) {
-			answer[i] = dq.getFirst();
-			dq.removeFirst();
-		}
+    int[] answer = new int[st.size()];
+        for(int j=0; j<answer.length; j++) {
+            answer[j] = st.get(j);
+        }
         return answer;
     }
 }
