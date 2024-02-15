@@ -3,7 +3,7 @@ import java.util.*;
 class Solution {
     public int[] solution(String[] id_list, String[] report, int k) {
         int[] answer = new int[id_list.length];
-        Map<String, Integer> map = new HashMap<>();
+		Map<String, List<String>> map = new HashMap<>();
 		Map<String, Integer> email = new HashMap<>();
 		Set<String> set = new HashSet<>();
         
@@ -12,18 +12,16 @@ class Solution {
 			set.add(s);
 		}
 
-		// 신고 계산
+		// 신고 계산 : 신고 당한 사람 | 신고한 사람 리스트
 		for (String s : set) {
-			map.put(s.split(" ")[1], map.getOrDefault(s.split(" ")[1], 0) + 1);
+			map.computeIfAbsent(s.split(" ")[1], key -> new ArrayList<>()).add(s.split(" ")[0]);
 		}
         
         // 신고 처리 결과 메일 발송
 		for (String s : map.keySet()) {
-			if (map.get(s) >= k) {
-				for (String str : set) {
-					if (str.contains(" " + s)) {
-						email.put(str.split(" ")[0], email.getOrDefault(str.split(" ")[0], 0) + 1);
-					}
+			if (map.get(s).size() >= k) {
+				for (String str : map.get(s)) {
+					email.put(str, email.getOrDefault(str, 0) + 1);
 				}
 			}
 		}
