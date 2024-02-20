@@ -3,7 +3,7 @@ class Solution {
         int answer = 0;
         for (int i : num_list) {
             while(i != 1) {
-                i = (i % 2 == 0) ? i/2 : (i-1)/2;
+                i = i/2;
                 answer++;
             }
         }
