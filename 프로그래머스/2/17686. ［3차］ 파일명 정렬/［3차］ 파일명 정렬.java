@@ -24,9 +24,10 @@ class Solution {
 				list.add(s);
 				numberMap.put(number, list);
 			}
-			
 			List<Integer> numberKeyList = new ArrayList<>(numberMap.keySet());
 			Collections.sort(numberKeyList);
+            
+            // 정렬된 파일명을 순서대로 담기
 			for (int i : numberKeyList) {
 				for (String element : numberMap.get(i)) {
 					answer.add(element);
