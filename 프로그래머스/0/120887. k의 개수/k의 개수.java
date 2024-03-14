@@ -4,7 +4,6 @@ class Solution {
         for (int num=i; num<=j; num++) {
             s += num;
         }
-        int length = s.length();
-        return length - s.replace(k+"", "").length();
+        return s.length() - s.replace(k+"", "").length();
     }
 }
